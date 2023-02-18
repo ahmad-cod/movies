@@ -14,7 +14,7 @@ function App() {
   const [genres, setGenres] = useState([])
   const [genresList, setGenresList] = useState([])
 
-  const api = `http://www.omdbapi.com/?s=${query}&apikey=7536432`
+  const api = `https://www.omdbapi.com/?s=${query}&apikey=7536432`
 
   const getMovies = () => {
     fetch(api)
@@ -26,7 +26,7 @@ function App() {
   }
 
   const getGenres = () => {
-    const url = 'http://www.omdbapi.com/?apikey=7536432&i='
+    const url = 'https://www.omdbapi.com/?apikey=7536432&i='
     let movieGenres = []
 
     movies&& movies.forEach(movie => {
