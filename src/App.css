@@ -7,6 +7,7 @@
 
 p {
   font-size: 1.9rem;
+  animation: moveLeftandFade 1.2s ease;
 }
 
 /************* Heading **************/
@@ -39,5 +40,33 @@ header {
 }
 
 .zoom:hover {
-  transform: scale(1.7, 1.4);
+  transform: scale(1.6, 1.4);
+}
+
+@keyframes moveLeftandFade {
+  from {
+      transform: translateX(10rem);
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  #root {
+    padding-inline: 3rem;
+  }
+  header {
+    flex-direction: column;
+    space-between: center;
+    align-items: center;
+  }
+  .search-bar input {
+    font-size: 1.6rem;
+  }
+  .movie-list {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3rem;
+  }
 }
