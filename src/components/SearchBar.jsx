@@ -1,6 +1,5 @@
 
 export default function SearchBar(props) {
-    console.log(props.query)
     return (
         <div className="search-bar">
             <input

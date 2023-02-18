@@ -5,7 +5,7 @@
   text-align: center;
 }
 img {
-  /* height: 200px; */
+  height: 250px;
 }
 header {
   display: flex;
@@ -27,8 +27,11 @@ input {
   }
 
   .movie-list{
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 1rem; */
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
   }
 }

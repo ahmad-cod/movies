@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import Movie from './components/Movie'
 import SearchBar from './components/SearchBar'
 import MovieList from './components/MovieList'
+import Heading from './components/MovieListHeading'
+import Filter from './components/Filter'
 
 function App() {
   const [movies, setMovies] = useState([])
+  const [filtered, setFiltered] = useState([])
   const [query, setQuery] = useState('avengers')
+  const [filterQuery, setFilterQuery] = useState(null)
+  const [genres, setGenres] = useState([])
+  const [genresList, setGenresList] = useState([])
 
   const api = `http://www.omdbapi.com/?s=${query}&apikey=7536432`
 
@@ -15,21 +19,60 @@ function App() {
     fetch(api)
       .then(response => response.json())
       .then(data => setMovies(data.Search))
+
+    getGenres()
+
   }
 
-  useEffect(() => {
-    getMovies()
-  }, [query])
+  const getGenres = () => {
+    const url = 'http://www.omdbapi.com/?apikey=7536432&i='
+    let movieGenres = []
 
-  console.log(movies)
+    movies&& movies.forEach(movie => {
+      fetch(`${url}${movie.imdbID}`)
+      .then(response => response.json())
+      .then(data => {
+        const genresArr = data.Genre.split(',')
+        movieGenres.push({
+          id: data.imdbID,
+          genre: data.Genre,
+          plot: data.Plot
+        })
+        setGenresList(prevState => [...prevState, ...genresArr])
+      }  
+      )
+      setGenres(movieGenres)
+      // console.log(genres)
+      console.log('getgenres')
+    })
+  }
+
+  useEffect(() => getMovies(), [query])
+  useEffect(() => console.log(genres), [genres])
+
+  const filterBy = query => {
+    if(query === filterQuery) return setFiltered([])
+
+    const filteredMovies = movies.filter(movie => movie.Year === query)
+    setFilterQuery(query)
+    setFiltered(filteredMovies)
+  }
+  const filterByGenre = (query) => {
+    if(query === filterQuery) return setFiltered([])
+
+    const filteredMovies = genres.filter(movie => movie.genre === query) 
+  }
+
   return (
     <div className="App">
       <header>
-        <h1>Movies</h1>
+        <Heading heading='Movies'/>
         <SearchBar query={query} setQuery={setQuery} />
+        <Filter filterBy={filterBy} movies={movies} genres={genres}
+         filterByGenre={filterByGenre} genresList={genresList} />
       </header>
       <main>
-        <MovieList movies={movies} />
+        <MovieList movies={movies} filtered={filtered} />
       </main>
     </div>
   )
