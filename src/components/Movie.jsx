@@ -1,7 +1,7 @@
 
 export default function Movie(props) {
     return (
-        <div>
+        <div className="zoom">
             <div className="img-container">
             <img src={props.Poster} alt="Movie's Poster" />
             <div className="overlay">

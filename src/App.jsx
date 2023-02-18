@@ -4,6 +4,7 @@ import SearchBar from './components/SearchBar'
 import MovieList from './components/MovieList'
 import Heading from './components/MovieListHeading'
 import Filter from './components/Filter'
+import Hero from './components/Hero'
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -42,13 +43,10 @@ function App() {
       }  
       )
       setGenres(movieGenres)
-      // console.log(genres)
-      console.log('getgenres')
     })
   }
 
   useEffect(() => getMovies(), [query])
-  useEffect(() => console.log(genres), [genres])
 
   const filterBy = query => {
     if(query === filterQuery) return setFiltered([])
@@ -65,12 +63,13 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+      <header role={'banner'}>
         <Heading heading='Movies'/>
         <SearchBar query={query} setQuery={setQuery} />
         <Filter filterBy={filterBy} movies={movies} genres={genres}
          filterByGenre={filterByGenre} genresList={genresList} />
       </header>
+      <Hero />
       <main>
         <MovieList movies={movies} filtered={filtered} />
       </main>

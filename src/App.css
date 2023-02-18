@@ -1,37 +1,43 @@
 #root {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 1rem 5rem;
+  /* text-align: center; */
 }
-img {
-  height: 250px;
+
+p {
+  font-size: 1.9rem;
 }
+
+/************* Heading **************/
+
 header {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 2rem;
+  align-items: center;
+  margin-bottom: 2.5em;
+  box-shadow: 0 10px 30px -10px #020c1b;
+}
+.filter {
+  position: relative;
+}
+.filter .container {
+  position: relative;
+  display: none;
+}
+.search-bar input {
+  font-size: 3rem;
+  color: var(--primary-color);
 }
 
-input {
-  font-size: 1.3rem;
+/************* Main Movies Section **************/
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
 }
 
-@media (min-width: 500px) {
-  header {
-    flex-direction: row;
-  }
-  input {
-    font-size: 1.6rem;
-  }
-
-  .movie-list{
-    /* display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem; */
-    display: flex;
-    gap: 2rem;
-    overflow-x: auto;
-  }
+.zoom:hover {
+  transform: scale(1.7, 1.4);
 }
