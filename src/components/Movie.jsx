@@ -1,6 +1,5 @@
 
 export default function Movie(props) {
-    console.log(props)
     return (
         <div className="card">
             <div className="img-container">

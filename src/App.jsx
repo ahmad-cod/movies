@@ -20,9 +20,6 @@ function App() {
     fetch(api)
       .then(response => response.json())
       .then(data => setMovies(data.Search))
-
-    getGenres()
-
   }
 
   const getGenres = () => {
@@ -48,11 +45,8 @@ function App() {
     })
   }
 
-  useEffect(() => {
-    getMovies()
-
-    // console.log(genres)
-  }, [query])
+  useEffect(() => getMovies(), [query])
+  useEffect(() => getGenres(), [movies])
 
   const filterBy = query => {
     if(query === filterQuery) return setFiltered([])

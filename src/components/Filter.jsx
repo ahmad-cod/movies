@@ -1,11 +1,10 @@
 import { useEffect } from "react"
 
 export default function Filter({ filterBy, movies, filterByGenre, genresList }) {
-    useEffect(() => {
-        
-    }, [])
+
     const availableGenres = []
     const availableYears = []
+
     if(movies) {
         for(let movie of movies) {
             if(!availableYears.includes(movie.Year)) {
@@ -23,7 +22,7 @@ export default function Filter({ filterBy, movies, filterByGenre, genresList }) 
             <div className="filter-components">
                 
                 <div className="container genre">
-                    <h4>Genre</h4>
+                    <h4>Genre <span className="dropdown-icon"></span></h4>
                     <ul className="filter-list">
                         {availableGenres.length ? 
                         availableGenres.map((genre, index) => 
