@@ -1,14 +1,15 @@
 
 export default function Movie(props) {
+    console.log(props)
     return (
-        <div className="zoom">
+        <div className="card">
             <div className="img-container">
-            <img src={props.Poster} alt="Movie's Poster" />
-            <div className="overlay">
-                {props.favComponent}
+            <img src={props.img} alt="Movie's Poster" />
             </div>
+            <div className="texts-container">
+                <h3>{props.title}</h3>
+                <p>{props.plot}</p>
             </div>
-            <h3>{props.Title}</h3>
 
         </div>
     )

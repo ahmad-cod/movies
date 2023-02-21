@@ -36,6 +36,8 @@ function App() {
         const genresArr = data.Genre.split(',')
         movieGenres.push({
           id: data.imdbID,
+          img: data.Poster,
+          title: data.Title,
           genre: data.Genre,
           plot: data.Plot
         })
@@ -46,7 +48,11 @@ function App() {
     })
   }
 
-  useEffect(() => getMovies(), [query])
+  useEffect(() => {
+    getMovies()
+
+    // console.log(genres)
+  }, [query])
 
   const filterBy = query => {
     if(query === filterQuery) return setFiltered([])
@@ -71,7 +77,7 @@ function App() {
       </header>
       <Hero />
       <main>
-        <MovieList movies={movies} filtered={filtered} />
+        <MovieList movies={movies} genres={genres} filtered={filtered} />
       </main>
     </div>
   )

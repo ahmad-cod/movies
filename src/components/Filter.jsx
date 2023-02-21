@@ -20,12 +20,11 @@ export default function Filter({ filterBy, movies, filterByGenre, genresList }) 
     }
     return (
         <div className="filter">
-            <p>Filter By</p>
             <div className="filter-components">
                 
-                {/* <div className="container">
+                <div className="container genre">
                     <h4>Genre</h4>
-                    <ul>
+                    <ul className="filter-list">
                         {availableGenres.length ? 
                         availableGenres.map((genre, index) => 
                          <li key={index}>
@@ -34,10 +33,10 @@ export default function Filter({ filterBy, movies, filterByGenre, genresList }) 
                         : <p>Loading...</p>
                     }
                     </ul>
-                </div> */}
+                </div>
                 <div className="container">
                     <h4>Year</h4>
-                    <ul>
+                    <ul className="filter-list">
                         {availableYears.length ? 
                         availableYears.map((year, index) => 
                          <li key={index}>

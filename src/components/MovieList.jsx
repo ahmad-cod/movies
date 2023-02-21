@@ -1,10 +1,10 @@
 import Movie from "./Movie";
 
-export default function MovieList({movies, filtered, favouriteComponent}) {
-    const moviesToBeShown = filtered.length ? filtered : movies
+export default function MovieList({movies, filtered, genres}) {
+    const moviesToBeShown = filtered.length ? filtered : genres
     return (
         <section className="movie-list">      
-            {moviesToBeShown && moviesToBeShown.map((movie, index) => <Movie key={index} {...movie} favComponent={favouriteComponent} />)  }
+            {moviesToBeShown && moviesToBeShown.map((movie, index) => <Movie key={index} {...movie} />)  }
         </section>
     )
 }
