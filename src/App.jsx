@@ -51,7 +51,7 @@ function App() {
   const filterBy = query => {
     if(query === filterQuery) return setFiltered([])
 
-    const filteredMovies = movies.filter(movie => movie.Year === query)
+    const filteredMovies = genres.filter(movie => movie.Year === query)
     setFilterQuery(query)
     setFiltered(filteredMovies)
   }

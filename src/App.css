@@ -1,7 +1,7 @@
 #root {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 6rem;
+  padding: 2rem 8rem;
   /* text-align: center; */
 }
 
@@ -28,17 +28,60 @@ header {
   align-items: center;
 }
 .filter-components .genre {
-  margin-right: 5rem;
+  margin-right: 12rem;
 }
-.filter-list {
-  position: relative;
-  display: none;
+.filter-components img {
+  display: inline-block;
+  color: var(--primary-color);
+  width: 15px;
+}
+
+.overflow {
+  overflow-y: auto;
+  max-height: 40rem;
+  padding: 1.5rem;
+}
+.genresDropdown, .yearsDropdown {
+  position: absolute;
+  top: 4rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 2px solid var(--primary-color);
+  width: max-content;
+}
+.genresDropdown::before, .yearsDropdown::before {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  right: 1rem;
+  height: 25px;
+  width: 25px;
+  transform: rotate(45deg);
+  background: white;
+}
+.genresDropdown li, .yearsDropdown li {
+  /* border: 2px solid var(--primary-color); */
+  padding-top: 1.5rem;
+
+}
+.genresDropdown {
+  right: 16rem;
+}
+.yearsDropdown {
+  right: 0rem;
 }
 .search-bar input {
   font-size: 3rem;
   color: var(--primary-color);
 }
-
+.dropdown-icon {
+  background: white;
+  background-image: url('./assets/icon-arrow-down.svg');
+  width: 28px;
+}
+svg {
+  fill: var(--primary-color);
+}
 /************* Main Movies Section **************/
 
 .hero-container {
@@ -69,9 +112,9 @@ header {
 }
 .card .texts-container {
   padding: 2rem;
-
 }
 .card p {
+  margin-top: 1rem;
   font-size: 1.6rem;
 }
 .card:hover {

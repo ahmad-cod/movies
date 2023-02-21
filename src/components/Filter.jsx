@@ -1,6 +1,10 @@
-import { useEffect } from "react"
+import { useState } from "react"
+import DropdownList from "./DropdownList"
+import dropdown from '../assets/icon-arrow-down.svg'
 
 export default function Filter({ filterBy, movies, filterByGenre, genresList }) {
+    const [genreDrpdown, setGenreDrpdown] = useState(false)
+    const [yearsDrpdown, setYearsDrpdown] = useState(false)
 
     const availableGenres = []
     const availableYears = []
@@ -22,29 +26,22 @@ export default function Filter({ filterBy, movies, filterByGenre, genresList }) 
             <div className="filter-components">
                 
                 <div className="container genre">
-                    <h4>Genre <span className="dropdown-icon"></span></h4>
-                    <ul className="filter-list">
-                        {availableGenres.length ? 
-                        availableGenres.map((genre, index) => 
-                         <li key={index}>
-                            <input type={"radio"} name='genreFilterQuery' onClick={() => filterByGenre(genre)} />{genre}
-                         </li>)
-                        : <p>Loading...</p>
+                    <h4 onClick={() => setGenreDrpdown(prev => !prev)}>
+                        Genre <span><img src={dropdown}/></span>
+                    </h4>
+                    {
+                        genreDrpdown &&
+                        <DropdownList className='genresDropdown' dropdownArr={availableGenres} handleFilter={filterByGenre} />
                     }
-                    </ul>
                 </div>
                 <div className="container">
-                    <h4>Year</h4>
-                    <ul className="filter-list">
-                        {availableYears.length ? 
-                        availableYears.map((year, index) => 
-                         <li key={index}>
-                            <input type={"radio"} name='yearFilterQuery' onClick={() => filterBy(year)} />
-                            <label className="filter-item">{year}</label>
-                         </li>)
-                        : <p>Loading...</p>
+                    <h4 onClick={() => setYearsDrpdown(prev => !prev)}>
+                        Year  <span><img src={dropdown}/></span>
+                    </h4>
+                    {
+                        yearsDrpdown &&
+                        <DropdownList className='yearsDropdown' dropdownArr={availableYears} handleFilter={filterBy} />
                     }
-                    </ul>
                 </div>
             </div>
         </div>
