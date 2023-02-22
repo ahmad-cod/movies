@@ -36,7 +36,8 @@ function App() {
           img: data.Poster,
           title: data.Title,
           genre: data.Genre,
-          plot: data.Plot
+          plot: data.Plot,
+          year: data.Year
         })
         setGenresList(prevState => [...prevState, ...genresArr])
       }  
@@ -51,7 +52,7 @@ function App() {
   const filterBy = query => {
     if(query === filterQuery) return setFiltered([])
 
-    const filteredMovies = genres.filter(movie => movie.Year === query)
+    const filteredMovies = genres.filter(movie => movie.year === query)
     setFilterQuery(query)
     setFiltered(filteredMovies)
   }
