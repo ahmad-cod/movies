@@ -133,7 +133,7 @@ svg {
 
 @media (max-width: 500px) {
   #root {
-    padding-inline: 3rem;
+    padding-inline: 2rem;
   }
   header {
     flex-direction: column;
@@ -141,8 +141,12 @@ svg {
     align-items: center;
   }
   .search-bar input {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     height: 2.8rem;
+    margin-block: 1rem;
+  }
+  .filter-components .genre {
+    margin-right: 10rem;
   }
   .movie-list {
     grid-template-columns: repeat(1, 1fr);

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import DropdownList from "./DropdownList"
 import dropdown from '../assets/icon-arrow-down.svg'
+import dropup from '../assets/icon-arrow-up.svg'
 
 export default function Filter({ filterBy, movies, filterByGenre, genresList }) {
     const [genreDrpdown, setGenreDrpdown] = useState(false)
@@ -27,7 +28,7 @@ export default function Filter({ filterBy, movies, filterByGenre, genresList }) 
                 
                 <div className="container genre">
                     <h4 onClick={() => setGenreDrpdown(prev => !prev)}>
-                        Genre <span><img src={dropdown}/></span>
+                        Genre <span><img src={!genreDrpdown ? dropdown : dropup}/></span>
                     </h4>
                     {
                         genreDrpdown &&
@@ -36,7 +37,7 @@ export default function Filter({ filterBy, movies, filterByGenre, genresList }) 
                 </div>
                 <div className="container">
                     <h4 onClick={() => setYearsDrpdown(prev => !prev)}>
-                        Year  <span><img src={dropdown}/></span>
+                        Year  <span><img src={!yearsDrpdown ? dropdown : dropup}/></span>
                     </h4>
                     {
                         yearsDrpdown &&
