@@ -38,6 +38,9 @@ header {
 label {
   padding-left: 1rem;
 }
+input[type="radio"] {
+  accent-color: #c58;
+}
 .overflow {
   overflow-y: auto;
   max-height: 40rem;
