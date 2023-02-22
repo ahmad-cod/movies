@@ -3,7 +3,7 @@ import DropdownList from "./DropdownList"
 import dropdown from '../assets/icon-arrow-down.svg'
 import dropup from '../assets/icon-arrow-up.svg'
 
-export default function Filter({ filterBy, movies, filterByGenre, genresList }) {
+export default function Filter({ filter, movies, genresList }) {
     const [genreDrpdown, setGenreDrpdown] = useState(false)
     const [yearsDrpdown, setYearsDrpdown] = useState(false)
 
@@ -32,7 +32,11 @@ export default function Filter({ filterBy, movies, filterByGenre, genresList }) 
                     </h4>
                     {
                         genreDrpdown &&
-                        <DropdownList className='genresDropdown' dropdownArr={availableGenres} handleFilter={filterByGenre} />
+                        <DropdownList
+                            className='genresDropdown'
+                            dropdownArr={availableGenres}
+                            handleFilter={filter} 
+                        />
                     }
                 </div>
                 <div className="container">
@@ -41,7 +45,11 @@ export default function Filter({ filterBy, movies, filterByGenre, genresList }) 
                     </h4>
                     {
                         yearsDrpdown &&
-                        <DropdownList className='yearsDropdown' dropdownArr={availableYears} handleFilter={filterBy} />
+                        <DropdownList
+                            className='yearsDropdown'
+                            dropdownArr={availableYears}
+                            handleFilter={filter} 
+                        />
                     }
                 </div>
             </div>

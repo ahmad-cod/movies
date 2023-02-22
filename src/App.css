@@ -35,7 +35,9 @@ header {
   color: var(--primary-color);
   width: 15px;
 }
-
+label {
+  padding-left: 1rem;
+}
 .overflow {
   overflow-y: auto;
   max-height: 40rem;

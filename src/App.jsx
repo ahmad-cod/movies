@@ -49,29 +49,23 @@ function App() {
   useEffect(() => getMovies(), [query])
   useEffect(() => getGenres(), [movies])
 
-  const filterBy = query => {
+  const filter = (query, queryType) => {
     if(query === filterQuery) return setFiltered([])
 
-    const filteredMovies = genres.filter(movie => movie.year === query)
-    setFilterQuery(query)
-    setFiltered(filteredMovies)
-  }
-  const filterByGenre = (query) => {
-    if(query === filterQuery) return setFiltered([])
-
-    const filteredMovies = genres.filter(movie => movie.genre.includes(query)) 
+    const filteredMovies = (queryType === 'year') ?
+      genres.filter(movie => movie[queryType] === query) :
+      genres.filter(movie => movie[queryType].includes(query))
 
     setFilterQuery(query)
     setFiltered(filteredMovies)
   }
-
+  
   return (
     <div className="App">
       <header role={'banner'}>
         <Heading heading='Movies'/>
         <SearchBar query={query} setQuery={setQuery} />
-        <Filter filterBy={filterBy} movies={movies} genres={genres}
-         filterByGenre={filterByGenre} genresList={genresList} />
+        <Filter filter={filter} movies={movies} genres={genres} genresList={genresList} />
       </header>
       <Hero />
       <main>
