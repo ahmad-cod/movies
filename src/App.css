@@ -146,7 +146,7 @@ svg {
     margin-block: 1rem;
   }
   .filter-components .genre {
-    margin-right: 10rem;
+    margin-right: 11rem;
   }
   .movie-list {
     grid-template-columns: repeat(1, 1fr);
