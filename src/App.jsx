@@ -59,7 +59,10 @@ function App() {
   const filterByGenre = (query) => {
     if(query === filterQuery) return setFiltered([])
 
-    const filteredMovies = genres.filter(movie => movie.genre === query) 
+    const filteredMovies = genres.filter(movie => movie.genre.includes(query)) 
+
+    setFilterQuery(query)
+    setFiltered(filteredMovies)
   }
 
   return (
