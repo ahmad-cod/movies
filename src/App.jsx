@@ -63,7 +63,7 @@ function App() {
   return (
     <div className="App">
       <header role={'banner'}>
-        <Heading heading='Movies'/>
+        <h1>Movies</h1>
         <SearchBar query={query} setQuery={setQuery} />
         <Filter filter={filter} movies={movies} genres={genres} genresList={genresList} />
       </header>
